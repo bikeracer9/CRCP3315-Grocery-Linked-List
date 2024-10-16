@@ -60,7 +60,36 @@ public class GroceryLinkedList {
     //find the specified food is your list. return the index of the food found and -1 if not found.
     int find(String food) 
     {
-        return -1;
+        if(isEmpty())
+        {
+            return -1;
+        }
+
+        else{
+            FoodNode current = head;
+            while( (current.getNextFood() != null) && (!current.getFoodName().equals(food)) )
+            {
+                current = current.getNextFood();
+                if(current.getFoodName().equals(food))
+                {
+                    return current.getFoodName(); //fix
+                }
+                else{
+                    return -1;
+                }
+            }
+        }
+        // FoodNode current = head;
+        // FoodNode previous = null;
+        // if(current.getFoodName().equals(food)) 
+        // {
+        //     return current.getFoodIndex(); 
+        // }
+        // else
+        // {
+        //     return -1;
+        // }
+        
     }
 
     //remove specified food by name
