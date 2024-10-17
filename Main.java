@@ -7,23 +7,59 @@ public class Main
         //Test 1:
         System.out.println("-----------------------------------------------" );
         System.out.println("Test 1: \n" );
-        GroceryList.insert( new FoodNode("Milk") );
-        // GroceryList.insert( new FoodNode("Bananas") );
-        // GroceryList.insert( new FoodNode("Ice Cream") );
-        // GroceryList.insert( new FoodNode("Spinach") );
-        // GroceryList.insert( new FoodNode("Chicken") );
+
+        GroceryList.insertAtStart( new FoodNode("Milk") );
+        GroceryList.insertAtEnd( new FoodNode("Bananas") );
+        GroceryList.insertAtEnd( new FoodNode("Ice Cream") );
+        GroceryList.insertAtEnd( new FoodNode("Spinach") );
+        GroceryList.insertAtEnd( new FoodNode("Chicken") );
+
         System.out.println("Grocery List:");
-        GroceryList.print();
         System.out.println("");
+
+        GroceryList.print();
+
         System.out.println("-----------------------------------------------" );
+
 
         //Test 2:
         System.out.println("Test 2: \n" );
+
+        GroceryList.remove("Ice Cream");
+        
+        System.out.println("Grocery List:");
         System.out.println("");
+        
+        GroceryList.print();
+        
         System.out.println("-----------------------------------------------" );
+        
+
         //Test 3:
+        System.out.println("Test 3: \n" );
+
+        GroceryList.remove("Chicken");
+        
+        System.out.println("Grocery List:");
+        System.out.println("");
+        
+        GroceryList.print();
+        
+        System.out.println("-----------------------------------------------" );
+
 
         //Test 4:
+        System.out.println("Test 4: \n" );
+
+        int indexOfSpinach = GroceryList.find("Spinach");
+        System.out.println("Spinach is number " + indexOfSpinach + " in the grocery list.");
+        
+        System.out.println("Grocery List:");
+        System.out.println("");
+        
+        GroceryList.print();
+        
+        System.out.println("-----------------------------------------------" );
 
         //Test 5:
 
