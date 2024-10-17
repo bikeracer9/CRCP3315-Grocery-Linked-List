@@ -1,3 +1,13 @@
+/*
+ * Prescott Lau
+ * October 16th
+ * 
+ * This class is the FoodNode class. It has the code to create a single object (a FoodNode) 
+ * that the GroceryLinkedList class uses to create a longer list of these FoodNodes.
+ * 
+ * This class only has one data object: its name.
+ */
+
 public class FoodNode {
 
     FoodNode nextFood;
