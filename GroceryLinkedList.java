@@ -29,7 +29,8 @@ public class GroceryLinkedList {
     //insert a FoodNode at the indicated index
     void insert(int index, FoodNode node)
     {
-
+        current = current.getFoodIndex();
+        current.setNextFood(node);
     }
 
     //insert a food after another specified food (HINT: use your find() and the other insert() method to help you )
@@ -41,13 +42,19 @@ public class GroceryLinkedList {
     //insert a FoodNode at the start of the list (prepend)
     void insertAtStart(FoodNode node) 
     {
-
+        node.nextFood = head;
+        head = node;
     }
 
     //insert a FoodNode at the end of the list (append)
     void insertAtEnd(FoodNode node) 
     {
-
+        FoodNode current = head;
+        while(current.nextFood != null)
+        {
+            current = current.nextFood;
+        }
+        current.nextFood = node;
     }
 
     //return whether the list is empty
@@ -58,26 +65,19 @@ public class GroceryLinkedList {
 
 
     //find the specified food is your list. return the index of the food found and -1 if not found.
-    int find(String food) 
+    public int find(String food) 
     {
         if(isEmpty())
-        {
             return -1;
-        }
-
-        else{
+        else
+        {
             FoodNode current = head;
             while( (current.getNextFood() != null) && (!current.getFoodName().equals(food)) )
-            {
                 current = current.getNextFood();
                 if(current.getFoodName().equals(food))
-                {
-                    return current.getFoodName(); //fix
-                }
-                else{
+                    return food.indexOf("" + current); //?????????
+                else
                     return -1;
-                }
-            }
         }
         // FoodNode current = head;
         // FoodNode previous = null;
@@ -93,15 +93,44 @@ public class GroceryLinkedList {
     }
 
     //remove specified food by name
-    String remove(String food) 
+    // String remove(String food) 
+    // {
+    //     if( isEmpty() ) //Case 1: empty list
+    //         return "List is empty"; 
+    //     FoodNode current = head;
+    //     FoodNode previous = null;
+    //     if(current.getFoodName().equals(food) ) //Case 2: remove 1st node
+    //     {
+    //         return "Removed" + current.toString();
+    //     }
+    //     while( (current.getNextFood() != null) && (!current.getFoodName().equals(food)) )
+    //     {
+    //         previous = current;
+    //         current = current.getNextFood();
+    //     }
+    //     if(current.getFoodName().equals(food)) //Case 3: removed named node
+    //     {
+    //         previous.setNextFood(current.getNextFood());
+    //         return "Removed"  + current.toString();
+    //     }
+    //     else
+    //     {
+    //         return "Sorry, no entry for " + food; //Case 4: node not found
+    //     }
+           
+    // }
+
+
+
+    void remove(String food) 
     {
         if( isEmpty() ) //Case 1: empty list
-            return "List is empty"; 
+            System.out.println("List is empty"); 
         FoodNode current = head;
         FoodNode previous = null;
         if(current.getFoodName().equals(food) ) //Case 2: remove 1st node
         {
-            return "Removed" + current.toString();
+            System.out.println("Removed" + current.toString());
         }
         while( (current.getNextFood() != null) && (!current.getFoodName().equals(food)) )
         {
@@ -111,11 +140,11 @@ public class GroceryLinkedList {
         if(current.getFoodName().equals(food)) //Case 3: removed named node
         {
             previous.setNextFood(current.getNextFood());
-            return "Removed"  + current.toString();
+            System.out.println("Removed"  + current.toString());
         }
         else
         {
-            return "Sorry, no entry for " + food; //Case 4: node not found
+            System.out.println("Sorry, no entry for " + food); //Case 4: node not found
         }
            
     }

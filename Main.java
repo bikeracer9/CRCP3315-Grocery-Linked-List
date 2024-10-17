@@ -7,7 +7,7 @@ public class Main
         //Test 1:
         System.out.println("-----------------------------------------------" );
         System.out.println("Test 1: \n" );
-        // GroceryList.insert( new FoodNode("Milk") );
+        GroceryList.insert( new FoodNode("Milk") );
         // GroceryList.insert( new FoodNode("Bananas") );
         // GroceryList.insert( new FoodNode("Ice Cream") );
         // GroceryList.insert( new FoodNode("Spinach") );
